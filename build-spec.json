@@ -19,7 +19,7 @@
     },{
       "project_name": "project-specific-ui",
       "project_job_git_key":"PSU",
-      "git_hash": "98608bd15533a516f5087a48e919c7b64d3e0db1"
+      "git_hash": "unify_header_footer"
     }
   ]
 }
