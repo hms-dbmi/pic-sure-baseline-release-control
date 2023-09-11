@@ -3,23 +3,23 @@
     {
       "project_name": "PIC-SURE-API Build",
       "project_job_git_key":"PSA",
-      "git_hash": "a83c27c2613b0460036f05b7814eced65fd8fe91"
+      "git_hash": "feature/rename-flyway-dataset-migration"
     },{
       "project_name": "PIC-SURE-HPDS Build",
       "project_job_git_key":"PSH",
-      "git_hash": "46f5aa4d1aaa44f430360db22ce3c88e24b2f365"
+      "git_hash": "release/0002"
     },{
       "project_name": "PIC-SURE Auth Micro-App Build",
       "project_job_git_key":"PSAMA",
-      "git_hash": "fbebb3ca1c63e8e9433afa5cedf564627f90faec"
+      "git_hash": "master"
     },{
-      "project_name": "PIC-SURE-HPDS-UI Build",
+      "project_name": "PIC-SURE-CORE-FRONTEND Build",
       "project_job_git_key":"PSHU",
-      "git_hash": "e1e200e5ad1b0ae6fdcdfcce8d8f6c3c8a134d2c"
+      "git_hash": "feature/edit-named-datasets"
     },{
       "project_name": "project-specific-ui",
       "project_job_git_key":"PSU",
-      "git_hash": "a82637ba9c9d546e25344f75db76467e5b91f339"
+      "git_hash": "test-migration"
     }
   ]
 }
