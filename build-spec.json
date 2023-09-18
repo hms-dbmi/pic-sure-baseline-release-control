@@ -15,7 +15,7 @@
     },{
       "project_name": "PIC-SURE-CORE-FRONTEND Build",
       "project_job_git_key":"PSHU",
-      "git_hash": "feature/named-dataset"
+      "git_hash": "feature/search-interface-updates"
     },{
       "project_name": "project-specific-ui",
       "project_job_git_key":"PSU",
