@@ -19,7 +19,7 @@
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key":"PSF",
-      "git_hash": "feature/login"
+      "git_hash": "deploy/login"
     }
   ]
 }
