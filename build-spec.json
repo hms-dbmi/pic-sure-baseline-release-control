@@ -11,7 +11,7 @@
     },{
       "project_name": "PIC-SURE Auth Micro-App Build",
       "project_job_git_key":"PSAMA",
-      "git_hash": "ALS-6103-Architectural-Changes-To-Support-Multiple-Auth-providers"
+      "git_hash": "ALS-6103"
     },{
       "project_name": "PIC-SURE-CORE-FRONTEND Build",
       "project_job_git_key":"PSHU",
