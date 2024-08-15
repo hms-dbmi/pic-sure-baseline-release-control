@@ -11,11 +11,11 @@
     },{
       "project_name": "PIC-SURE Auth Micro-App Build",
       "project_job_git_key":"PSAMA",
-      "git_hash": "ALS-6103"
+      "git_hash": "v3.0.3"
     },{
       "project_name": "PIC-SURE-CORE-FRONTEND Build",
       "project_job_git_key":"PSHU",
-      "git_hash": "ALS-6103"
+      "git_hash": "v2.14.0"
     },{
       "project_name": "project-specific-ui",
       "project_job_git_key":"PSU",
