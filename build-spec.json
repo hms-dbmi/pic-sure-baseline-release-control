@@ -15,7 +15,7 @@
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key":"PSM",
-      "git_hash": "main"
+      "git_hash": "ALS-5375-Dictionary-Resource"
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key":"PSF",
