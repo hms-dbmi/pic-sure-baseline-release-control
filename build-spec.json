@@ -3,11 +3,11 @@
     {
       "project_name": "PIC-SURE-API Build",
       "project_job_git_key":"PSA",
-      "git_hash": "ALS-5375"
+      "git_hash": "release"
     },{
       "project_name": "PIC-SURE-HPDS Build",
       "project_job_git_key":"PSH",
-      "git_hash": "ALS-6816"
+      "git_hash": "genomic-v2"
     },{
       "project_name": "PIC-SURE Auth Micro-App Build",
       "project_job_git_key":"PSAMA",
@@ -15,7 +15,7 @@
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key":"PSM",
-      "git_hash": "ALS-5375-Dictionary-Resource"
+      "git_hash": "main"
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key":"PSF",
@@ -23,11 +23,11 @@
     },{
       "project_name": "PIC-SURE Dictionary",
       "project_job_git_key":"DICTIONARY",
-      "git_hash": "ALS-5375"
+      "git_hash": "release"
     },{
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key":"DICTIONARY_ETL",
-      "git_hash": "ALS-6816"
+      "git_hash": "main"
     }
   ]
 }
