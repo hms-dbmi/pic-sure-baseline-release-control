@@ -11,7 +11,7 @@
     },{
       "project_name": "PIC-SURE Auth Micro-App Build",
       "project_job_git_key":"PSAMA",
-      "git_hash": "release"
+      "git_hash": "Fix-Jakarta-Issue"
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key":"PSM",
@@ -19,7 +19,7 @@
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key":"PSF",
-      "git_hash": "ALS-8970"
+      "git_hash": "add-redirect-for-admin-pages"
     },{
       "project_name": "PIC-SURE Dictionary",
       "project_job_git_key":"DICTIONARY",
