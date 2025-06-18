@@ -98,7 +98,7 @@
       {
         "title": "Collaborate",
         "description": "Gain access to de-identified patient-level data by partnering with researchers from GIC network institutions",
-        "icon": "fa-regular fa-handshake"",
+        "icon": "fa-regular fa-handshake",
         "url": "/collaborate",
         "btnText": "Find Collaborators",
         "isOpen": false,
