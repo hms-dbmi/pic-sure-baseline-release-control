@@ -96,6 +96,15 @@
         "showIfLoggedIn": true
       },
       {
+        "title": "Collaborate",
+        "description": "Gain access to de-identified patient-level data by partnering with researchers from GIC network institutions",
+        "icon": "fa-regular fa-handshake"",
+        "url": "/collaborate",
+        "btnText": "Find Collaborators",
+        "isOpen": false,
+        "showIfLoggedIn": true
+      },
+      {
         "title": "Prepare for Analysis",
         "description": "Use the PIC-SURE API to prepare data for analysis",
         "icon": "fa-solid fa-chart-line",
