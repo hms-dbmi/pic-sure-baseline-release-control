@@ -1,5 +1,16 @@
 {
   "applicationName": "PIC‑SURE",
+  "statFields": {},
+  "results": {
+    "totalStatKey": "query:patientCount",
+    "stats": [
+      {
+        "key": "query:patientCount",
+        "label": "Filtered Participants"
+      }
+    ],
+    "cohortDescription": "Distribution of total patient counts across networked institutions."
+  },
   "sitemap": [
     {
       "category": "Administration",
@@ -127,8 +138,7 @@
         "key": "dict:facets:dataset_id",
         "label": "Data Sources"
       }
-    ],
-    "statFields": {}
+    ]
   },
   "analysisPage": {
     "cards": [
