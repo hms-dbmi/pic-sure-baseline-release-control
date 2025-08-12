@@ -104,18 +104,27 @@
         "icon": "fa-solid fa-magnifying-glass",
         "url": "/explorer",
         "btnText": "Start Exploring",
-        "isOpen": false,
+        "isOpen": true,
         "showIfLoggedIn": true
       },
       {
         "title": "Prepare for Analysis",
-        "description": "Use the PIC-SURE API to prepare data for analysis",
+        "description": "Log in to explore participant-level data, save datasets, and kickstart your research analysis",
         "icon": "fa-solid fa-chart-line",
         "url": "/analyze/api",
         "btnText": "Prepare for Analysis",
         "isOpen": false,
         "showIfLoggedIn": true
-      }
+      },
+      {
+        "title": "Login",
+        "description": "Use the PIC-SURE API to prepare data for analysis",
+        "icon": "fa-solid fa-user",
+        "url": "/login",
+        "btnText": "Go to Login",
+        "isOpen": true,
+        "showIfLoggedIn": false
+      },
     ],
     "stats": [
       {
