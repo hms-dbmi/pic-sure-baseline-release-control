@@ -28,6 +28,10 @@
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key":"DICTIONARY_ETL",
       "git_hash": "main"
+    },{
+      "project_name": "PIC-SURE Aggregate Resource",
+      "project_job_git_key":"AGGREGATE",
+      "git_hash": "release"
     }
   ]
 }
