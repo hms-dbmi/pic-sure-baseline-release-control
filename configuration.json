@@ -124,7 +124,7 @@
         "btnText": "Go to Login",
         "isOpen": true,
         "showIfLoggedIn": false
-      },
+      }
     ],
     "stats": [
       {
