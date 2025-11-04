@@ -11,7 +11,7 @@
     },{
       "project_name": "PIC-SURE Auth Micro-App Build",
       "project_job_git_key":"PSAMA",
-      "git_hash": "release"
+      "git_hash": "main"
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key":"PSM",
