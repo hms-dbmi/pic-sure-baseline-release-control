@@ -23,11 +23,11 @@
     },{
       "project_name": "PIC-SURE Dictionary",
       "project_job_git_key":"DICTIONARY",
-      "git_hash": "ALS-7748-sort-by-order"
+      "git_hash": "main"
     },{
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key":"DICTIONARY_ETL",
-      "git_hash": "ALS-7748-loader-cat-meta"
+      "git_hash": "main"
     }
   ]
 }
