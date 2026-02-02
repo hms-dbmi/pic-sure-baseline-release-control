@@ -3,7 +3,7 @@
     {
       "project_name": "PIC-SURE-API Build",
       "project_job_git_key":"PSA",
-      "git_hash": "release"
+      "git_hash": "main"
     },{
       "project_name": "PIC-SURE-HPDS Build",
       "project_job_git_key":"PSH",
@@ -11,7 +11,7 @@
     },{
       "project_name": "PIC-SURE Auth Micro-App Build",
       "project_job_git_key":"PSAMA",
-      "git_hash": "release"
+      "git_hash": "main"
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key":"PSM",
@@ -27,7 +27,7 @@
     },{
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key":"DICTIONARY_ETL",
-      "git_hash": "Facet_Loader"
+      "git_hash": "main"
     }
   ]
 }
