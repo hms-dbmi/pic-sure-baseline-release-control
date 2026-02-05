@@ -28,6 +28,14 @@
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key":"DICTIONARY_ETL",
       "git_hash": "main"
+    },{
+      "project_name": "PIC-SURE Uploader",
+      "project_job_git_key":"UPLOADER",
+      "git_hash": "v1.2.5"
+    },{
+      "project_name": "PIC-SURE Passthru Service",
+      "project_job_git_key":"PASSTHRU",
+      "git_hash": "v2.4.1"
     }
   ]
 }
