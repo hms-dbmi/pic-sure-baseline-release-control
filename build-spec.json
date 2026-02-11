@@ -32,6 +32,11 @@
       "project_name": "PIC-SURE Aggregate Resource",
       "project_job_git_key":"AGGREGATE",
       "git_hash": "v2.20.5"
+    },
+    {
+      "project_name": "PIC-SURE Logging Resource",
+      "project_job_git_key":"LOG",
+      "git_hash": "v0.0.0"
     }
   ]
 }
