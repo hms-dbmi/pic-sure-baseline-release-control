@@ -23,7 +23,7 @@
     },{
       "project_name": "PIC-SURE Dictionary",
       "project_job_git_key":"DICTIONARY",
-      "git_hash": "main"
+      "git_hash": "use-jar"
     },{
       "project_name": "PIC-SURE Logging",
       "project_job_git_key":"PSL",
