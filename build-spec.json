@@ -28,7 +28,7 @@
     },{
       "project_name": "PIC-SURE Logging",
       "project_job_git_key":"PSL",
-      "git_hash": "v1.0.3"
+      "git_hash": "v1.0.2"
     },{
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key":"DICTIONARY_ETL",
