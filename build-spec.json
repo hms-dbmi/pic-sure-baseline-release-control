@@ -32,7 +32,7 @@
     },{
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key":"DICTIONARY_ETL",
-      "git_hash": "v1.0.4"
+      "git_hash": "v1.1.0"
     }
   ]
 }
