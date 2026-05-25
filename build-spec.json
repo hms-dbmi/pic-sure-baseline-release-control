@@ -37,10 +37,6 @@
       "project_name": "PIC-SURE Visualization",
       "project_job_git_key":"PSV",
       "git_hash": "rewrite"
-    },{
-      "project_name": "PIC-SURE Logging",
-      "project_job_git_key":"PSL",
-      "git_hash": "v1.0.3"
     }
   ]
 }
