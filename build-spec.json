@@ -3,7 +3,7 @@
     {
       "project_name": "PIC-SURE-API Build",
       "project_job_git_key":"PSA",
-      "git_hash": "v2.27.1"
+      "git_hash": "ALS-10714-obf-in-api"
     },{
       "project_name": "PIC-SURE-HPDS Build",
       "project_job_git_key":"PSH",
@@ -20,7 +20,7 @@
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key":"PSF",
-      "git_hash": "v3.1.0"
+      "git_hash": "ALS-10714-consume-obf-counts"
     },{
       "project_name": "PIC-SURE Dictionary",
       "project_job_git_key":"DICTIONARY",
@@ -36,7 +36,7 @@
     },{
       "project_name": "PIC-SURE Visualization",
       "project_job_git_key":"PSV",
-      "git_hash": "v1.0.0"
+      "git_hash": "ALS-10714-obf-in-api"
     }
   ]
 }
