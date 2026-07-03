@@ -11,12 +11,12 @@
     },{
       "project_name": "PIC-SURE Auth Micro-App Build",
       "project_job_git_key":"PSAMA",
-      "git_hash": "main"
+      "git_hash": "pic_sure_api_rewrite_p3"
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key":"PSM",
       "project_name": "Baseline",
-      "git_hash": "main"
+      "git_hash": "pic_sure_api_rewrite_p3"
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key":"PSF",
