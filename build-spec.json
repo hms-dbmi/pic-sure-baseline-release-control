@@ -22,6 +22,10 @@
       "project_job_git_key":"PSF",
       "git_hash": "pic_sure_api_rewrite"
     },{
+      "project_name": "PIC-SURE Visualization",
+      "project_job_git_key":"PSV",
+      "git_hash": "pic_sure_api_rewrite"
+    },{
       "project_name": "PIC-SURE Dictionary",
       "project_job_git_key":"DICTIONARY",
       "git_hash": "main"
