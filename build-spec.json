@@ -16,11 +16,11 @@
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key":"PSM",
       "project_name": "Baseline",
-      "git_hash": "v1.0.5"
+      "git_hash": "add-new-viz"
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key":"PSF",
-      "git_hash": "feature/configuration2"
+      "git_hash": "main"
     },{
       "project_name": "PIC-SURE Dictionary",
       "project_job_git_key":"DICTIONARY",
