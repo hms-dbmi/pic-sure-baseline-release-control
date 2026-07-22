@@ -1,8 +1,8 @@
 {
   "application": [
     {
-      "project_name": "PIC-SURE Monorepo",
-      "project_job_git_key": "MONOREPO",
+      "project_name": "PIC-SURE-API Build",
+      "project_job_git_key": "PSA",
       "git_hash": "pic_sure_api_mono_repo"
     },{
       "project_name": "PIC-SURE-Frontend Build",
