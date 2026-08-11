@@ -3,7 +3,7 @@
     {
       "project_name": "PIC-SURE-API Build",
       "project_job_git_key": "PSA",
-      "git_hash": "wdc-contracts"
+      "git_hash": "well-defined-contract"
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key": "PSF",
