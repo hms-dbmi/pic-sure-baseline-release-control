@@ -7,7 +7,7 @@
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key": "PSF",
-      "git_hash": "pic-sure-api-rewrite"
+      "git_hash": "pic_sure_api_rewrite"
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key": "PSM",
