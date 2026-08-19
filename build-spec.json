@@ -1,21 +1,21 @@
 {
-  "application": [
-    {
-      "project_name": "PIC-SURE-API Build",
-      "project_job_git_key": "PSA",
-      "git_hash": "main"
-    },{
-      "project_name": "PIC-SURE-Frontend Build",
-      "project_job_git_key": "PSF",
-      "git_hash": "feature/admin-config-ui_flat"
-    },{
-      "project_name": "PIC-SURE-Database-Migrations",
-      "project_job_git_key": "PSM",
-      "git_hash": "pic_sure_api_rewrite"
-    },{
-      "project_name": "PIC-SURE Dictionary ETL",
-      "project_job_git_key": "DICTIONARY_ETL",
-      "git_hash": "main"
-    }
-  ]
+  "application": [
+    {
+      "project_name": "PIC-SURE-API Build",
+      "project_job_git_key": "PSA",
+      "git_hash": "main"
+    },{
+      "project_name": "PIC-SURE-Frontend Build",
+      "project_job_git_key": "PSF",
+      "git_hash": "feature/admin-config-ui_flat"
+    },{
+      "project_name": "PIC-SURE-Database-Migrations",
+      "project_job_git_key": "PSM",
+      "git_hash": "pic_sure_api_rewrite"
+    },{
+      "project_name": "PIC-SURE Dictionary ETL",
+      "project_job_git_key": "DICTIONARY_ETL",
+      "git_hash": "main"
+    }
+  ]
 }
