@@ -28,7 +28,7 @@ EXPECTED_COMPONENTS = {
     ),
     "AIO": (
         "https://github.com/hms-dbmi/pic-sure-all-in-one.git",
-        "480ee01823d79c930ac3fca94a84d6bc9900da0f",
+        "715857456594814957d9abc26ad14efbccb65e11",
     ),
 }
 EXPECTED_CONTRACT_COMMIT = "0178bbd2d1753e07dcead77a6d0e8ca37bf76dd8"
