@@ -23,7 +23,7 @@
       "project_name": "PIC-SURE All-In-One workflow",
       "project_job_git_key": "AIO",
       "git_repo": "https://github.com/hms-dbmi/pic-sure-all-in-one.git",
-      "git_hash": "5208407b614bcbfe0fcb84653bc181712696fafa"
+      "git_hash": "7b4b55ff1dac182cf550f3e7f654dd836f88018a"
     },
     {
       "project_name": "PIC-SURE Dictionary ETL",
@@ -34,7 +34,7 @@
   "bannerRollout": {
     "contractSourceCommit": "0178bbd2d1753e07dcead77a6d0e8ca37bf76dd8",
     "contractSha256": "f8cb265d735b757872391e04fdcd5b999b785eaa427ca13f8f2eefd493715359",
-    "aioWorkflowSha256": "86df7acd6cfeccf4fa368b2783c1c2d040410f27fc3e9511f9567503d4869021",
+    "aioWorkflowSha256": "023172579149acab68b894f93b90889e8a98e463b52b9b9c46d7b9858e49ba67",
     "releaseControlCommitSource": "pipeline_git_commit.txt",
     "forwardPhases": [
       "APPLY_AUTHORIZATION_AND_PIC_SURE_MIGRATIONS",

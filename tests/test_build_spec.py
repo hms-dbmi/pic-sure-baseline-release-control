@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 import json
+import os
 from pathlib import Path
+import shutil
+import subprocess
+import tempfile
 import unittest
 
 
@@ -21,12 +25,12 @@ EXPECTED_COMPONENTS = {
     ),
     "AIO": (
         "https://github.com/hms-dbmi/pic-sure-all-in-one.git",
-        "5208407b614bcbfe0fcb84653bc181712696fafa",
+        "7b4b55ff1dac182cf550f3e7f654dd836f88018a",
     ),
 }
 EXPECTED_CONTRACT_COMMIT = "0178bbd2d1753e07dcead77a6d0e8ca37bf76dd8"
 EXPECTED_CONTRACT_SHA256 = "f8cb265d735b757872391e04fdcd5b999b785eaa427ca13f8f2eefd493715359"
-EXPECTED_AIO_WORKFLOW_SHA256 = "86df7acd6cfeccf4fa368b2783c1c2d040410f27fc3e9511f9567503d4869021"
+EXPECTED_AIO_WORKFLOW_SHA256 = "023172579149acab68b894f93b90889e8a98e463b52b9b9c46d7b9858e49ba67"
 EXPECTED_FORWARD = [
     "APPLY_AUTHORIZATION_AND_PIC_SURE_MIGRATIONS",
     "RECREATE_PSAMA",
@@ -82,6 +86,74 @@ class BuildSpecTest(unittest.TestCase):
         self.assertEqual(rollout["schemaRollback"], "KEEP_FORWARD_SCHEMA")
         self.assertFalse(rollout["downMigrationAllowed"])
         self.assertEqual(rollout["aioWorkflowSha256"], EXPECTED_AIO_WORKFLOW_SHA256)
+
+    def test_cross_repository_pin_validator_uses_exact_safe_clean_roots(self):
+        aio_root = Path(
+            os.environ.get(
+                "AIO_PIN_VALIDATION_ROOT",
+                ROOT.parent / "pic-sure-all-in-one",
+            )
+        )
+        if not aio_root.is_dir():
+            self.skipTest(f"AIO proof root is unavailable: {aio_root}")
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            release_root = tmp_path / "release-control"
+            release_root.mkdir()
+            shutil.copy2(BUILD_SPEC, release_root / "build-spec.json")
+            real_git = shutil.which("git")
+            self.assertIsNotNone(real_git)
+            for arguments in (
+                ("init",),
+                ("config", "user.email", "synthetic@example.invalid"),
+                ("config", "user.name", "Synthetic Test"),
+                ("add", "build-spec.json"),
+                ("commit", "-m", "synthetic release tuple"),
+            ):
+                setup = subprocess.run(
+                    [real_git, "-C", str(release_root), *arguments],
+                    text=True,
+                    capture_output=True,
+                    check=False,
+                )
+                self.assertEqual(setup.returncode, 0, setup.stdout + setup.stderr)
+            bin_dir = tmp_path / "bin"
+            bin_dir.mkdir()
+            git_wrapper = bin_dir / "git"
+            git_wrapper.write_text(
+                """#!/usr/bin/env bash
+case " $* " in
+  *" -c safe.directory=$EXPECTED_AIO_ROOT "*|*" -c safe.directory=$EXPECTED_RELEASE_ROOT "*) ;;
+  *) echo "missing exact safe.directory" >&2; exit 73 ;;
+esac
+exec "$REAL_GIT" "$@"
+"""
+            )
+            git_wrapper.chmod(0o755)
+            environment = os.environ.copy()
+            environment.update(
+                {
+                    "PATH": f"{bin_dir}:{environment['PATH']}",
+                    "REAL_GIT": real_git,
+                    "EXPECTED_AIO_ROOT": str(aio_root.resolve()),
+                    "EXPECTED_RELEASE_ROOT": str(release_root.resolve()),
+                }
+            )
+            result = subprocess.run(
+                [
+                    "python3",
+                    str(ROOT / "tests/validate_aio_pin.py"),
+                    str(aio_root),
+                    "--release-root",
+                    str(release_root),
+                ],
+                cwd=ROOT,
+                env=environment,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
 
 if __name__ == "__main__":

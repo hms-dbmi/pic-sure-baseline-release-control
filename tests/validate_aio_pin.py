@@ -16,13 +16,45 @@ def fail(message: str) -> None:
     raise SystemExit(2)
 
 
-def git(aio_root: Path, *arguments: str) -> subprocess.CompletedProcess:
+def git(repository_root: Path, *arguments: str) -> subprocess.CompletedProcess:
     return subprocess.run(
-        ["git", "-C", str(aio_root), *arguments],
+        [
+            "git",
+            "-c",
+            f"safe.directory={repository_root}",
+            "-C",
+            str(repository_root),
+            *arguments,
+        ],
         text=True,
         capture_output=True,
         check=False,
     )
+
+
+def require_clean_root(repository_root: Path, label: str) -> str:
+    top_level = git(repository_root, "rev-parse", "--show-toplevel")
+    if top_level.returncode != 0:
+        fail(
+            top_level.stderr.strip()
+            or f"could not inspect {label} checkout: {repository_root}"
+        )
+    actual_root = Path(top_level.stdout.strip()).resolve()
+    if actual_root != repository_root:
+        fail(
+            f"{label} root {repository_root} is inside Git checkout {actual_root}"
+        )
+    head = git(repository_root, "rev-parse", "HEAD")
+    if head.returncode != 0:
+        fail(head.stderr.strip() or f"could not inspect {label} HEAD")
+    status = git(
+        repository_root, "status", "--porcelain", "--untracked-files=all"
+    )
+    if status.returncode != 0:
+        fail(status.stderr.strip() or f"could not inspect {label} status")
+    if status.stdout:
+        fail(f"{label} checkout is not clean: {repository_root}")
+    return head.stdout.strip()
 
 
 def load_aio_tuple(build_spec: Path) -> tuple[str, str]:
@@ -58,7 +90,8 @@ def main() -> None:
     )
     arguments = parser.parse_args()
     aio_root = arguments.aio_root.resolve()
-    build_spec = arguments.release_root.resolve() / "build-spec.json"
+    release_root = arguments.release_root.resolve()
+    build_spec = release_root / "build-spec.json"
     workflow_script = aio_root / "workflow-sha256.sh"
     manifest = (
         aio_root
@@ -72,17 +105,10 @@ def main() -> None:
         fail(f"AIO workflow manifest is missing: {manifest}")
 
     aio_commit, expected_digest = load_aio_tuple(build_spec)
-    head = git(aio_root, "rev-parse", "HEAD")
-    if head.returncode != 0:
-        fail(head.stderr.strip() or f"could not inspect AIO checkout: {aio_root}")
-    actual_head = head.stdout.strip()
+    release_head = require_clean_root(release_root, "release-control")
+    actual_head = require_clean_root(aio_root, "AIO")
     if actual_head != aio_commit:
         fail(f"executing AIO HEAD {actual_head} does not match release tuple {aio_commit}")
-    status = git(aio_root, "status", "--porcelain", "--untracked-files=all")
-    if status.returncode != 0:
-        fail(status.stderr.strip() or f"could not inspect AIO status: {aio_root}")
-    if status.stdout:
-        fail(f"executing AIO checkout is not clean: {aio_root}")
     ancestry = git(
         aio_root, "merge-base", "--is-ancestor", INTEGRATED_AIO_BASE, aio_commit
     )
@@ -93,6 +119,14 @@ def main() -> None:
         )
 
     environment = os.environ.copy()
+    for variable in (
+        "AIO_WORKFLOW_SHA256_SCRIPT",
+        "AIO_WORKFLOW_MODE",
+        "AIO_WORKFLOW_MANIFEST",
+        "AIO_WORKFLOW_REPO_ROOT",
+        "AIO_WORKFLOW_JENKINS_HOME",
+    ):
+        environment.pop(variable, None)
     environment.update(
         {
             "AIO_WORKFLOW_MODE": "source",
@@ -100,7 +134,6 @@ def main() -> None:
             "AIO_WORKFLOW_MANIFEST": str(manifest),
         }
     )
-    environment.pop("AIO_WORKFLOW_JENKINS_HOME", None)
     digest = subprocess.run(
         [str(workflow_script)],
         cwd=aio_root,
@@ -121,6 +154,8 @@ def main() -> None:
     print(f"Integrated ancestor: {INTEGRATED_AIO_BASE}")
     print(f"AIO workflow digest: {actual_digest}")
     print(f"Executing AIO root: {aio_root}")
+    print(f"Release-control commit: {release_head}")
+    print(f"Executing release-control root: {release_root}")
 
 
 if __name__ == "__main__":
