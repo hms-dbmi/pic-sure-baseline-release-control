@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import contextlib
+import importlib.util
+import io
 import json
 import os
 from pathlib import Path
@@ -25,12 +28,12 @@ EXPECTED_COMPONENTS = {
     ),
     "AIO": (
         "https://github.com/hms-dbmi/pic-sure-all-in-one.git",
-        "1ef821345df5d2983d6d446b6b51f7999110f92e",
+        "2f1bf10c0b732d3e90cbc8a2b18553ec38f9bead",
     ),
 }
 EXPECTED_CONTRACT_COMMIT = "0178bbd2d1753e07dcead77a6d0e8ca37bf76dd8"
 EXPECTED_CONTRACT_SHA256 = "f8cb265d735b757872391e04fdcd5b999b785eaa427ca13f8f2eefd493715359"
-EXPECTED_AIO_WORKFLOW_SHA256 = "c67dac09b88fd4bb9921a4eeed92c6ef65dfbd7523282ca183b8e3225839ca0d"
+EXPECTED_AIO_WORKFLOW_SHA256 = "d0d79b790bd4b88ba1b0cce4edac40a01dfa8ea006a8f69b4c77b6264bd17981"
 EXPECTED_FORWARD = [
     "APPLY_AUTHORIZATION_AND_PIC_SURE_MIGRATIONS",
     "RECREATE_PSAMA",
@@ -60,7 +63,65 @@ def load_spec():
     return json.loads(BUILD_SPEC.read_text(), object_pairs_hook=reject_duplicate_keys)
 
 
+def load_pin_validator():
+    module_path = ROOT / "tests/validate_aio_pin.py"
+    spec = importlib.util.spec_from_file_location("validate_aio_pin", module_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 class BuildSpecTest(unittest.TestCase):
+    def test_aio_clean_gate_ignores_only_python_bytecode_not_real_drift(self):
+        aio_root = Path(
+            os.environ.get(
+                "AIO_PIN_VALIDATION_ROOT",
+                ROOT.parent / "pic-sure-all-in-one",
+            )
+        ).resolve()
+        validator = load_pin_validator()
+        with tempfile.TemporaryDirectory() as tmp:
+            checkout = Path(tmp) / "aio"
+            checkout.mkdir()
+            shutil.copy2(aio_root / ".gitignore", checkout / ".gitignore")
+            tracked = checkout / "tracked.txt"
+            tracked.write_text("clean\n")
+            real_git = shutil.which("git")
+            self.assertIsNotNone(real_git)
+            for arguments in (
+                ("init",),
+                ("config", "user.email", "synthetic@example.invalid"),
+                ("config", "user.name", "Synthetic Test"),
+                ("add", ".gitignore", "tracked.txt"),
+                ("commit", "-m", "synthetic clean root"),
+            ):
+                result = subprocess.run(
+                    [real_git, "-C", str(checkout), *arguments],
+                    text=True,
+                    capture_output=True,
+                    check=False,
+                )
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            cache = checkout / "tests/banner-rollout/__pycache__"
+            cache.mkdir(parents=True)
+            (cache / "test_contract.cpython-311.pyc").write_bytes(b"synthetic")
+            validator.require_clean_root(checkout.resolve(), "AIO")
+
+            untracked = checkout / "real-untracked.txt"
+            untracked.write_text("drift\n")
+            with contextlib.redirect_stderr(io.StringIO()) as stderr:
+                with self.assertRaises(SystemExit):
+                    validator.require_clean_root(checkout.resolve(), "AIO")
+            self.assertIn("checkout is not clean", stderr.getvalue())
+            untracked.unlink()
+
+            tracked.write_text("tracked drift\n")
+            with contextlib.redirect_stderr(io.StringIO()) as stderr:
+                with self.assertRaises(SystemExit):
+                    validator.require_clean_root(checkout.resolve(), "AIO")
+            self.assertIn("checkout is not clean", stderr.getvalue())
+
     def test_banner_release_tuple_uses_exact_reviewed_commits(self):
         spec = load_spec()
         entries = {entry["project_job_git_key"]: entry for entry in spec["application"]}
