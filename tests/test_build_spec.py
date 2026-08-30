@@ -25,12 +25,12 @@ EXPECTED_COMPONENTS = {
     ),
     "AIO": (
         "https://github.com/hms-dbmi/pic-sure-all-in-one.git",
-        "7b4b55ff1dac182cf550f3e7f654dd836f88018a",
+        "1ef821345df5d2983d6d446b6b51f7999110f92e",
     ),
 }
 EXPECTED_CONTRACT_COMMIT = "0178bbd2d1753e07dcead77a6d0e8ca37bf76dd8"
 EXPECTED_CONTRACT_SHA256 = "f8cb265d735b757872391e04fdcd5b999b785eaa427ca13f8f2eefd493715359"
-EXPECTED_AIO_WORKFLOW_SHA256 = "023172579149acab68b894f93b90889e8a98e463b52b9b9c46d7b9858e49ba67"
+EXPECTED_AIO_WORKFLOW_SHA256 = "c67dac09b88fd4bb9921a4eeed92c6ef65dfbd7523282ca183b8e3225839ca0d"
 EXPECTED_FORWARD = [
     "APPLY_AUTHORIZATION_AND_PIC_SURE_MIGRATIONS",
     "RECREATE_PSAMA",
@@ -94,8 +94,10 @@ class BuildSpecTest(unittest.TestCase):
                 ROOT.parent / "pic-sure-all-in-one",
             )
         )
-        if not aio_root.is_dir():
-            self.skipTest(f"AIO proof root is unavailable: {aio_root}")
+        self.assertTrue(
+            aio_root.is_dir(),
+            f"mandatory AIO proof root is unavailable: {aio_root}",
+        )
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
             release_root = tmp_path / "release-control"
