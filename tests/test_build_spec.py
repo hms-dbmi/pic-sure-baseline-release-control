@@ -21,7 +21,7 @@ EXPECTED_COMPONENTS = {
     ),
     "AIO": (
         "https://github.com/hms-dbmi/pic-sure-all-in-one.git",
-        "deb92bc9aa7e2d4e091a666d15b932265a6fcbcc",
+        "f6997185538858548012abf703a085718a548c9b",
     ),
 }
 EXPECTED_CONTRACT_COMMIT = "0178bbd2d1753e07dcead77a6d0e8ca37bf76dd8"
@@ -59,6 +59,8 @@ class BuildSpecTest(unittest.TestCase):
     def test_banner_release_tuple_uses_exact_reviewed_commits(self):
         spec = load_spec()
         entries = {entry["project_job_git_key"]: entry for entry in spec["application"]}
+        self.assertEqual(set(entries), {*EXPECTED_COMPONENTS, "DICTIONARY_ETL"})
+        self.assertTrue({"PSH", "PSAMA", "DICTIONARY", "PSL", "PSV"}.isdisjoint(entries))
         for key, (repository, commit) in EXPECTED_COMPONENTS.items():
             with self.subTest(key=key):
                 self.assertIn(key, entries)
