@@ -23,7 +23,7 @@
       "project_name": "PIC-SURE All-In-One workflow",
       "project_job_git_key": "AIO",
       "git_repo": "https://github.com/hms-dbmi/pic-sure-all-in-one.git",
-      "git_hash": "2f1bf10c0b732d3e90cbc8a2b18553ec38f9bead"
+      "git_hash": "65682385e82e24cede8d7dafba8e5ab25e49a62d"
     },
     {
       "project_name": "PIC-SURE Dictionary ETL",
