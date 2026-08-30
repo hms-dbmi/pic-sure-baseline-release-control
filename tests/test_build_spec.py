@@ -21,11 +21,12 @@ EXPECTED_COMPONENTS = {
     ),
     "AIO": (
         "https://github.com/hms-dbmi/pic-sure-all-in-one.git",
-        "f6997185538858548012abf703a085718a548c9b",
+        "4733bfe9c63b2468d6cf0050ae7b95b24118094e",
     ),
 }
 EXPECTED_CONTRACT_COMMIT = "0178bbd2d1753e07dcead77a6d0e8ca37bf76dd8"
 EXPECTED_CONTRACT_SHA256 = "f8cb265d735b757872391e04fdcd5b999b785eaa427ca13f8f2eefd493715359"
+EXPECTED_AIO_WORKFLOW_SHA256 = "b439f7e80f1a23b5c4bdd935c6cd3ad7f96a6397719b67bfc3263d8a11018c70"
 EXPECTED_FORWARD = [
     "APPLY_AUTHORIZATION_AND_PIC_SURE_MIGRATIONS",
     "RECREATE_PSAMA",
@@ -80,6 +81,7 @@ class BuildSpecTest(unittest.TestCase):
         self.assertEqual(rollout["rollbackPhases"], EXPECTED_ROLLBACK)
         self.assertEqual(rollout["schemaRollback"], "KEEP_FORWARD_SCHEMA")
         self.assertFalse(rollout["downMigrationAllowed"])
+        self.assertEqual(rollout["aioWorkflowSha256"], EXPECTED_AIO_WORKFLOW_SHA256)
 
 
 if __name__ == "__main__":
