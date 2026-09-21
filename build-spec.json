@@ -3,7 +3,7 @@
     {
       "project_name": "PIC-SURE-API Build",
       "project_job_git_key": "PSA",
-      "git_hash": "main"
+      "git_hash": "openapi/psama"
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key": "PSF",
