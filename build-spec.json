@@ -1,42 +1,19 @@
 {
   "application": [
     {
-      "project_name": "PIC-SURE-API Build",
-      "project_job_git_key":"PSA",
-      "git_hash": "ALS-10714-obf-in-api"
-    },{
-      "project_name": "PIC-SURE-HPDS Build",
-      "project_job_git_key":"PSH",
-      "git_hash": "v4.13.1"
-    },{
-      "project_name": "PIC-SURE Auth Micro-App Build",
-      "project_job_git_key":"PSAMA",
-      "git_hash": "v4.2.2"
-    },{
-      "project_name": "PIC-SURE-Database-Migrations",
-      "project_job_git_key":"PSM",
-      "project_name": "Baseline",
-      "git_hash": "v1.0.4"
-    },{
+      "project_name": "PIC-SURE Monorepo Build",
+      "project_job_git_key": "PSA",
+      "git_hash": "1f7725ab25c16067a3517b7a5a0cb1e269a2de6b"
+    },
+    {
       "project_name": "PIC-SURE-Frontend Build",
-      "project_job_git_key":"PSF",
-      "git_hash": "ALS-10714-consume-obf-counts"
-    },{
-      "project_name": "PIC-SURE Dictionary",
-      "project_job_git_key":"DICTIONARY",
-      "git_hash": "v1.8.3"
-    },{
-      "project_name": "PIC-SURE Logging",
-      "project_job_git_key":"PSL",
-      "git_hash": "v1.0.3"
-    },{
-      "project_name": "PIC-SURE Dictionary ETL",
-      "project_job_git_key":"DICTIONARY_ETL",
-      "git_hash": "v1.1.0"
-    },{
-      "project_name": "PIC-SURE Visualization",
-      "project_job_git_key":"PSV",
-      "git_hash": "ALS-10714-obf-in-api"
+      "project_job_git_key": "PSF",
+      "git_hash": "3d6c54dea4446f5e66dfb050e0992be8b8967e67"
+    },
+    {
+      "project_name": "PIC-SURE-Database-Migrations",
+      "project_job_git_key": "PSM",
+      "git_hash": "ed3bd9eb4d4fbc745e6c42923448599c76844781"
     }
   ]
 }
