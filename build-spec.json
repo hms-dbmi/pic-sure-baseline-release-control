@@ -7,15 +7,15 @@
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key": "PSF",
-      "git_hash": "main"
+      "git_hash": "ALS-13096-connect-assistant"
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key": "PSM",
-      "git_hash": "main"
+      "git_hash": "ALS-13096-mcp-access-rule"
     },{
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key": "DICTIONARY_ETL",
-      "git_hash": "v1.3.0"
+      "git_hash": "main"
     }
   ]
 }
