@@ -11,7 +11,7 @@
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key": "PSM",
-      "git_hash": "ALS-13096-mcp-access-rule"
+      "git_hash": "ai-service-access-rule"
     },{
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key": "DICTIONARY_ETL",
