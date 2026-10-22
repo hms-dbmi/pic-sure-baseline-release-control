@@ -3,7 +3,7 @@
     {
       "project_name": "PIC-SURE-API Build",
       "project_job_git_key": "PSA",
-      "git_hash": "mcp-loop"
+      "git_hash": "ALS-13187-ais-loop-refinement"
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key": "PSF",
