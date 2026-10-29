@@ -11,7 +11,7 @@
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key": "PSM",
-      "git_hash": "v2.0.0"
+      "git_hash": "v2.1.0"
     },{
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key": "DICTIONARY_ETL",
