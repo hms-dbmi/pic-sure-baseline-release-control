@@ -3,11 +3,11 @@
     {
       "project_name": "PIC-SURE-API Build",
       "project_job_git_key": "PSA",
-      "git_hash": "sam-wip"
+      "git_hash": "mcp-loop"
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key": "PSF",
-      "git_hash": "ALS-13096-connect-assistant"
+      "git_hash": "ALS-13191-assisted-search"
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key": "PSM",
