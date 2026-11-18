@@ -3,19 +3,19 @@
     {
       "project_name": "PIC-SURE-API Build",
       "project_job_git_key": "PSA",
-      "git_hash": "main"
+      "git_hash": "v5.1.0"
     },{
       "project_name": "PIC-SURE-Frontend Build",
       "project_job_git_key": "PSF",
-      "git_hash": "main"
+      "git_hash": "v4.2.0"
     },{
       "project_name": "PIC-SURE-Database-Migrations",
       "project_job_git_key": "PSM",
-      "git_hash": "main"
+      "git_hash": "v2.1.0"
     },{
       "project_name": "PIC-SURE Dictionary ETL",
       "project_job_git_key": "DICTIONARY_ETL",
-      "git_hash": "main"
+      "git_hash": "v1.3.0"
     }
   ]
 }
